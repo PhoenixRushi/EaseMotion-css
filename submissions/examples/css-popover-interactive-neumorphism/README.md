@@ -1,2 +1,0 @@
-# Interactive Popover (Neumorphism)
-A fully tactile Neumorphic popover menu. The trigger button and internal action buttons physically press into the surface when interacted with, utilizing an inversion from outer `box-shadow` to `inset` shadow on hover and active states.

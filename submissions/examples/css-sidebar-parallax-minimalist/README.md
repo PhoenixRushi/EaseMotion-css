@@ -1,2 +1,0 @@
-# Parallax Sidebar (Minimalist)
-A highly refined, minimalist vertical sidebar. When hovered, the entire sidebar container tilts slightly using 3D perspective while the icons physically lift off the surface (`translateZ`).

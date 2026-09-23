@@ -1,2 +1,0 @@
-# Hover Badge (SaaS Modern)
-A crisp, professional status indicator. At rest, it displays a neutral gray background with a green success dot. On hover, it elegantly transitions to the brand's primary blue theme, slightly elevating while expanding the dot's shadow ring.

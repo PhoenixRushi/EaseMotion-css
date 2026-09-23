@@ -1,2 +1,0 @@
-# Interactive Carousel (Dark Mode)
-A dark mode carousel utilizing left and right arrow controls. It leverages complex CSS sibling selectors to conditionally display the correct "next" and "previous" label overlays based on the active slide state.

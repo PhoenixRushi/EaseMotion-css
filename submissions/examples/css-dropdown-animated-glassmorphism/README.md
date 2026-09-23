@@ -1,2 +1,0 @@
-# Animated Dropdown (Glassmorphism)
-A stunning light-mode frosted glass dropdown menu. Ambient background blobs bring vibrant color through the deeply blurred, translucent dropdown panel utilizing `backdrop-filter`.

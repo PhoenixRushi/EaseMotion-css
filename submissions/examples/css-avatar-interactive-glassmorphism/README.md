@@ -1,2 +1,0 @@
-# Interactive Avatar (Glassmorphism)
-A premium avatar component featuring a frosted glass ring bounding the profile image. On hover, a beautifully blurred dropdown menu slides down from underneath the avatar.

@@ -1,31 +1,96 @@
+/*
+  EaseMotion CSS — Typewriter Effect
+  Self-contained example. No dependency on core/ files.
+  Category: Text
+*/
+
+:root {
+  --ease-tw-color: #1a1a1a;
+  --ease-tw-caret-color: #8b5cf6; /* matches EaseMotion's default accent */
+  --ease-tw-bg: #ffffff;
+  --ease-tw-duration-heading: 2.6s;
+  --ease-tw-duration-sub: 1.8s;
+  --ease-tw-caret-speed: 0.75s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ease-tw-color: #f4f4f5;
+    --ease-tw-bg: #0f0f12;
+  }
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
   min-height: 100vh;
-  background: #000;
-  color: #0f0;
-  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ease-tw-bg);
+  padding: 2rem;
 }
-.typewriter-container {
-  display: inline-block;
+
+.ease-demo-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  max-width: min(90vw, 40rem);
 }
-.typewriter {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
+
+/* Core typewriter mechanic:
+   1. Text starts fully hidden via width: 0 and overflow: hidden.
+   2. `typing` animates width from 0 to 100% in discrete character-sized
+      steps, so it reveals one character at a time instead of scaling.
+   3. A right border acts as the caret and blinks independently.
+*/
+.ease-typewriter {
+  /* Overridden inline per-element (style="--ease-tw-steps: N") to match
+     that element's character count, so the reveal always lands on
+     whole-character boundaries regardless of text length. */
+  --ease-tw-steps: 34;
+
+  margin: 0;
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+  color: var(--ease-tw-color);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.12em solid var(--ease-tw-caret-color);
+  width: 0;
+  max-width: 100%;
   animation:
-    typing 3.5s steps(25, end),
-    blink-caret 0.75s step-end infinite;
+    ease-typewriter-typing var(--ease-tw-duration-heading)
+      steps(var(--ease-tw-steps), end) forwards,
+    ease-typewriter-caret var(--ease-tw-caret-speed) step-end infinite;
 }
-@keyframes typing {
+
+.ease-typewriter--sub {
+  --ease-tw-steps: 29;
+
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.75;
+  animation-name: ease-typewriter-typing, ease-typewriter-caret;
+  animation-duration: var(--ease-tw-duration-sub), var(--ease-tw-caret-speed);
+  animation-timing-function: steps(var(--ease-tw-steps), end), step-end;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards, none;
+  /* Delay the subtitle until the heading has finished typing */
+  animation-delay: var(--ease-tw-duration-heading), var(--ease-tw-duration-heading);
+  width: 0;
+}
+
+h1.ease-typewriter {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+@keyframes ease-typewriter-typing {
   from {
     width: 0;
   }
@@ -33,12 +98,107 @@ body {
     width: 100%;
   }
 }
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
+
+@keyframes ease-typewriter-caret {
+  0%,
+  100% {
+    border-color: var(--ease-tw-caret-color);
   }
   50% {
-    border-color: orange;
+    border-color: transparent;
   }
+}
+
+/* Accessibility: respect reduced-motion preference by showing the final
+   text instantly with no blinking caret, per EaseMotion CSS conventions. */
+@media (prefers-reduced-motion: reduce) {
+  .ease-typewriter,
+  .ease-typewriter--sub {
+    animation: none !important;
+    width: 100% !important;
+    border-right-color: transparent !important;
+  }
+}
+
+/* High-contrast / forced-colors fallback */
+@media (forced-colors: active) {
+  .ease-typewriter {
+    border-right-color: CanvasText;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Interactive controls (type-your-own-headline + replay)            */
+/* ---------------------------------------------------------------- */
+
+.ease-tw-controls {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ease-tw-label {
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--ease-tw-color);
+  opacity: 0.6;
+}
+
+.ease-tw-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.ease-tw-input {
+  flex: 1 1 14rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--ease-tw-color) 25%, transparent);
+  background: color-mix(in srgb, var(--ease-tw-bg) 92%, var(--ease-tw-color) 8%);
+  color: var(--ease-tw-color);
+}
+
+.ease-tw-input:focus-visible {
+  outline: 2px solid var(--ease-tw-caret-color);
+  outline-offset: 1px;
+}
+
+.ease-tw-btn {
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: #fff;
+  background: var(--ease-tw-caret-color);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.ease-tw-btn:hover {
+  opacity: 0.9;
+}
+
+.ease-tw-btn:active {
+  transform: scale(0.97);
+}
+
+.ease-tw-btn--ghost {
+  background: transparent;
+  color: var(--ease-tw-color);
+  border: 1px solid color-mix(in srgb, var(--ease-tw-color) 30%, transparent);
+}
+
+.ease-tw-btn:focus-visible {
+  outline: 2px solid var(--ease-tw-caret-color);
+  outline-offset: 2px;
 }

@@ -1,14 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typewriter Effect</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="typewriter-container">
-      <h1 class="typewriter">Hello, World! I am CSS.</h1>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typewriter Effect — EaseMotion CSS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="ease-demo-stage">
+    <h1 id="tw-heading" class="ease-typewriter" style="--ease-tw-steps: 34;">
+      Build faster with EaseMotion CSS.
+    </h1>
+
+    <p id="tw-sub" class="ease-typewriter ease-typewriter--sub" style="--ease-tw-steps: 29;">
+      Zero dependencies. Pure CSS motion.
+    </p>
+
+    <form id="tw-form" class="ease-tw-controls" autocomplete="off">
+      <label for="tw-input" class="ease-tw-label">
+        Try your own headline
+      </label>
+      <div class="ease-tw-row">
+        <input
+          id="tw-input"
+          class="ease-tw-input"
+          type="text"
+          maxlength="60"
+          placeholder="Type something and press Enter…"
+        />
+        <button type="submit" class="ease-tw-btn">Type it</button>
+        <button type="button" id="tw-replay" class="ease-tw-btn ease-tw-btn--ghost">
+          ↻ Replay
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    (function () {
+      const heading = document.getElementById("tw-heading");
+      const sub = document.getElementById("tw-sub");
+      const form = document.getElementById("tw-form");
+      const input = document.getElementById("tw-input");
+      const replayBtn = document.getElementById("tw-replay");
+
+      const DEFAULT_HEADING = "Build faster with EaseMotion CSS.";
+      const DEFAULT_SUB = "Zero dependencies. Pure CSS motion.";
+
+      // Restarts a CSS animation by removing the element's animation,
+      // forcing a reflow, then re-applying it. This is the standard
+      // vanilla-JS technique for replaying a CSS keyframe animation
+      // without any animation library.
+      function retrigger(el, text, steps) {
+        el.textContent = text;
+        el.style.setProperty("--ease-tw-steps", steps);
+        el.style.animation = "none";
+        // Force reflow so the browser "forgets" the previous animation run.
+        void el.offsetWidth;
+        el.style.animation = "";
+      }
+
+      function playSequence(headlineText, subText) {
+        const headingSteps = Math.max(headlineText.length, 1);
+        const subSteps = Math.max(subText.length, 1);
+        retrigger(heading, headlineText, headingSteps);
+        retrigger(sub, subText, subSteps);
+      }
+
+      replayBtn.addEventListener("click", () => {
+        playSequence(heading.textContent, sub.textContent);
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const value = input.value.trim();
+        playSequence(value || DEFAULT_HEADING, DEFAULT_SUB);
+      });
+    })();
+  </script>
+</body>
 </html>

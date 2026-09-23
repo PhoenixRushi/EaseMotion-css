@@ -1,2 +1,0 @@
-# Floating Cookie Banner (Gradient Glow)
-A highly visible, pure CSS dismissible cookie banner. It features a continuous animated multi-color gradient glow border behind a dark surface. The user's choice is tracked via a hidden checkbox that triggers a smooth exit animation.

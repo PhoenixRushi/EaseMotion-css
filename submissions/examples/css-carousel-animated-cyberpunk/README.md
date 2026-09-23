@@ -1,2 +1,0 @@
-# Animated Carousel (Cyberpunk)
-A gritty, high-contrast slider heavily inspired by Cyberpunk UI. It features harsh neon colors, chromatic aberration text-shadows, and a jarring `steps()` transition to simulate digital stutter.

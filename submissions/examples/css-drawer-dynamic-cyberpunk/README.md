@@ -1,2 +1,0 @@
-# Dynamic Drawer (Cyberpunk)
-A gritty, high-tech side drawer. It utilizes sharp geometry, jarring `steps()` entrance animations, and high-contrast neon colors to emulate a retro-futuristic terminal interface.

@@ -1,2 +1,0 @@
-# Floating Carousel (SaaS Modern)
-A highly polished B2B SaaS slider. It features crisp white cards on an off-white background, where the active slide scales up significantly to draw focus, and the navigation dots expand dynamically to indicate state.

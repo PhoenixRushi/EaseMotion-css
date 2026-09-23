@@ -1,2 +1,0 @@
-# Animated Input Field (Cyberpunk)
-A dystopian terminal input. Features a bouncy floating label and an animated underline that stretches to 100% on focus, followed by a frantic skewing glitch animation.

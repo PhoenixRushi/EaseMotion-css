@@ -1,2 +1,0 @@
-# Floating Popover (Minimalist)
-A stark, ultra-clean popover. It drops heavy styling in favor of thin 1px borders, subtle soft shadows, and clean monochromatic typography. Uses `:focus-within` for seamless pure CSS toggling.

@@ -1,2 +1,0 @@
-# Responsive Stepper (Minimalist)
-A stark, monochrome process tracker. It utilizes hairline borders and absolute contrast between completed and pending states. On mobile viewports, the connecting lines are stripped away entirely in favor of a clean vertical stack.

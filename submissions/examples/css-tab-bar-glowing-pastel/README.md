@@ -1,2 +1,0 @@
-# Glowing Tab Bar (Pastel)
-A bouncy mobile-app style navigation bar. The active `.pt-highlight` pill glides between tabs tracking the checked state. Selecting a tab pushes its icon upwards while revealing the label beneath, casting a soft, color-coordinated pastel glow onto the surface below.

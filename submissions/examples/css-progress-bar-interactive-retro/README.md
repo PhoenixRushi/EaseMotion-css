@@ -1,2 +1,0 @@
-# Interactive Progress Bar (Retro)
-A chunky, terminal-style progress bar. Features a 45-degree striped hazard fill that scrolls continuously, and responds to an interactive button using CSS sibling selectors.

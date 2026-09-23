@@ -1,2 +1,0 @@
-# Glowing Tooltip (Pastel)
-A highly visible but extremely soft tooltip. It uses thick borders and aggressive box-shadows colored in soft pastel pinks and greens to glow gently without blinding the user.

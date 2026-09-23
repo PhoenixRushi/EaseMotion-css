@@ -1,2 +1,0 @@
-# Morphing Dropdown (Dark Mode)
-A sleek, high-contrast settings menu. Triggering the hidden checkbox causes the caret icon to rotate 180 degrees while the dropdown menu smoothly morphs into existence using a `scaleY` transform originating from the top edge.

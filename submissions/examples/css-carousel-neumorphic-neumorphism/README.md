@@ -1,2 +1,0 @@
-# Neumorphic Carousel (Neumorphism)
-A CSS-only carousel leveraging soft UI inset/outset shadows. Uses radio buttons to translate the slides and applies pressed Neumorphic states to the active control dots.

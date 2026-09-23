@@ -1,1 +1,0 @@
-A breadcrumb navigation trail with arrow separators, smooth hover glow effects, and a highlighted current page. Each step is a link except the active one, which is styled distinctly. Built with pure CSS and respects reduced-motion preferences.
