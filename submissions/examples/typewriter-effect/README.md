@@ -51,8 +51,8 @@ Open `demo.html` directly in a browser — no build step, no server, no
 dependencies to install.
 
 ```html
-<h1 class="ease-typewriter" style="--ease-tw-steps: 12;">Hello there!</h1>
-<p class="ease-typewriter ease-typewriter--sub" style="--ease-tw-steps: 8;">
+<h1 class="ease-typewriter-rushi" style="--ease-tw-steps: 12;">Hello there!</h1>
+<p class="ease-typewriter-rushi ease-typewriter-rushi--sub" style="--ease-tw-steps: 8;">
   Nice to meet you
 </p>
 ```
